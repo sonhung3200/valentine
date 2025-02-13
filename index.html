@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Love Me?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background-color: pink;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            flex-direction: column;
+            position: relative;
+        }
+        .question {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .buttons {
+            position: relative;
+            width: 900px;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .yes, .no {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            position: absolute;
+        }
+        .yes {
+            background-color: red;
+            color: white;
+        }
+        .no {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+    <script>
+        function moveNoButton() {
+            let noButton = document.getElementById("no");
+            let container = document.querySelector(".buttons");
+            let maxX = container.clientWidth - noButton.clientWidth - 10;
+            let maxY = container.clientHeight - noButton.clientHeight - 10;
+            
+            let x = Math.random() * maxX;
+            let y = Math.random() * maxY;
+            
+            // Giữ nút trong phạm vi hợp lệ
+            x = Math.max(10, Math.min(x, maxX));
+            y = Math.max(10, Math.min(y, maxY));
+            
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+        }
+    </script>
+</head>
+<body>
+    <div class="question">Em có yêu anh không? 💖</div>
+    <div class="buttons">
+        <button class="yes" onclick="window.location.href='valentine.html'">Yes ❤️</button>
+        <button class="no" id="no" onmouseover="moveNoButton()">No 😢</button>
+    </div>
+</body>
+</html>
